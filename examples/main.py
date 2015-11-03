@@ -62,8 +62,9 @@ if __name__ == '__main__':
     growl = kwargs.pop('growl')
     debug = kwargs.pop('debug')
     if growl:
+        from cosmos import signal_execution_status_change
+        from cosmos.api import ExecutionStatus
         from cosmos.util import growl
-        from cosmos.api import signal_execution_status_change, ExecutionStatus
 
         @signal_execution_status_change.connect
         def growl_signal(execution):
