@@ -15,7 +15,7 @@ settings = config['main']
 
 if __name__ == '__main__':
     import ex1
-    import ex_fail
+    import ex2
     import ex_email
 
     cosmos = Cosmos('sqlite:///%s/sqlite.db' % os.path.dirname(os.path.abspath(__file__)))
@@ -48,8 +48,8 @@ if __name__ == '__main__':
     sp.set_defaults(func=ex1.run_ex1)
     add_execution_args(sp)
 
-    sp = sps.add_parser('ex2', help='Example2: A failed task')
-    sp.set_defaults(func=ex_fail.run_ex2)
+    sp = sps.add_parser('ex2', help='Example2: Example1 using helper functions for brevity')
+    sp.set_defaults(func=ex2.run_ex2)
     add_execution_args(sp)
 
     sp = sps.add_parser('ex3', help='Example3: Twitter (note you must edit the file)')
