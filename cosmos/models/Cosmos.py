@@ -87,6 +87,14 @@ class Cosmos(object):
         self.flask_app.config['SQLALCHEMY_DATABASE_URI'] = database_url
         # self.flask_app.config['SQLALCHEMY_ECHO'] = True
 
+        #
+        # Not sure whether this option is required for Cosmos to work
+        # properly, but it silences a warning message. Setting it to
+        # False would too, but in previous versions of SqlAlchemy this
+        # was enabled by default and it seems safest to do so here.
+        #
+        self.flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+
         from flask_sqlalchemy import SQLAlchemy
 
         self.sqla = SQLAlchemy(self.flask_app)
